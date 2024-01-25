@@ -1,0 +1,32 @@
+import random
+
+def is_whole_num(num):
+    answer = eval(num)
+    if answer % 2 != 0:
+        return False
+    else:
+        return True
+
+def generate_problem():
+    # Choose random numbers for the problem
+    while True:
+        a = random.randint(1, 20)
+        b = random.randint(1, 10)
+        c = random.randint(1, 5)
+        
+        # Choose random operations
+        op1 = random.choice(["+", "-"])
+        op2 = random.choice(["*", "/"])
+        
+        # Construct the problem
+        problem = f"{a} {op1} ({b} {op2} {c})"
+        
+        if is_whole_num(problem) == True:
+            
+            return problem
+            
+
+# Generate 10 problems
+for i in range(10):
+    problem = generate_problem()
+    print(f"{i+1}. {problem}")
